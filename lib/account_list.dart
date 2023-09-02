@@ -3,6 +3,8 @@ import 'package:passwordmanagerapp/account_regist.dart';
 import 'package:passwordmanagerapp/account_mst.dart';
 import 'package:flutter/services.dart';
 
+import 'account_detail.dart';
+
 // リスト一覧画面用Widget
 class AccountList extends StatefulWidget {
   @override
@@ -33,6 +35,8 @@ class _AccountListState extends State<AccountList> {
       body: ListView.builder(
         itemCount: accountList.length,
         itemBuilder: (context, index) {
+          AccountMst account;
+          account = accountList[index];
           return Dismissible(
               onDismissed: (direction) {
                 setState(() {
@@ -48,11 +52,22 @@ class _AccountListState extends State<AccountList> {
               key: UniqueKey(),
               child: Column(children: [
                 ListTile(
-                  title: Text(accountList[index].title),
-                  subtitle: Text(accountList[index].accountId +
-                      "  /  " +
-                      accountList[index].password),
-                ),
+                    title: Text(account.title),
+                    subtitle:
+                        Text(account.accountId + "  /  " + account.password),
+                    onTap: () async {
+                      AccountMst accountMst = await Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) {
+                          // 遷移先の画面としてリスト追加画面を指定
+                          return AccountDetail(account);
+                        }),
+                      );
+                      if (accountMst != null) {
+                        setState(() {
+                          accountList[index] = accountMst;
+                        });
+                      }
+                    }),
                 Row(
                   children: <Widget>[
                     ElevatedButton(
