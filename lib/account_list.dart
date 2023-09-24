@@ -20,7 +20,14 @@ class _AccountListState extends State<AccountList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("パスワード一覧"),
+        title: const Text('パスワード一覧'),
+        leading: TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: const Color(0xFFFFFFFF),
+          ),
+          child: const Text('並替'),
+          onPressed: () {},
+        ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.search),
