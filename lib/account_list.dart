@@ -107,13 +107,24 @@ class _AccountListState extends State<AccountList> {
                     }),
                 Row(
                   children: <Widget>[
+                    const SizedBox(
+                      width: 20,
+                    ),
                     ElevatedButton(
                       onPressed: () async {
                         final data =
                             ClipboardData(text: accountList[index].accountId);
                         await Clipboard.setData(data);
                       },
-                      child: Text("アカウントをコピー"),
+                      child: const Text(
+                        'アカウントをコピー',
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
                     ),
                     ElevatedButton(
                       onPressed: () async {
@@ -121,7 +132,12 @@ class _AccountListState extends State<AccountList> {
                             ClipboardData(text: accountList[index].password);
                         await Clipboard.setData(data);
                       },
-                      child: Text("パスワードをコピー"),
+                      child: const Text(
+                        'パスワードをコピー',
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
                     ),
                   ],
                 ),
