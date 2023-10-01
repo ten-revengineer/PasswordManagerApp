@@ -125,6 +125,13 @@ class _AccountListState extends State<AccountList> {
                     ),
                   ],
                 ),
+                const Divider(
+                  height: 30,
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 0,
+                  color: Color.fromARGB(29, 92, 92, 92),
+                ),
               ]));
         },
       ),
