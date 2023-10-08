@@ -62,7 +62,7 @@ class _AccountRegistState extends State<AccountRegist> {
                   ),
 
                   const SizedBox(height: 8),
-                  Container(
+                  SizedBox(
                     // 横幅いっぱいに広げる
                     width: double.infinity,
                     // リスト追加ボタン
@@ -77,7 +77,7 @@ class _AccountRegistState extends State<AccountRegist> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Container(
+                  SizedBox(
                     // 横幅いっぱいに広げる
                     width: double.infinity,
                     // キャンセルボタン
