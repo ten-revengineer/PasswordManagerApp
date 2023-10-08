@@ -47,7 +47,7 @@ class _AccountListState extends State<AccountList> {
             OutlinedButton(
               style: TextButton.styleFrom(
                 foregroundColor: const Color(0xFFFFFFFF),
-                side: BorderSide(color: Colors.white, width: 1.0),
+                side: const BorderSide(color: Colors.white, width: 1.0),
               ),
               child: const Text(
                 '　▼ すべて　',
