@@ -4,8 +4,10 @@ import 'package:passwordmanagerapp/account_mst.dart';
 
 // リスト一覧画面用Widget
 class AccountRegist extends StatefulWidget {
+  const AccountRegist({super.key});
+
   @override
-  _AccountRegistState createState() => _AccountRegistState();
+  State<AccountRegist> createState() => _AccountRegistState();
 }
 
 class _AccountRegistState extends State<AccountRegist> {
@@ -17,7 +19,7 @@ class _AccountRegistState extends State<AccountRegist> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("テスト"),
+        title: const Text("テスト"),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.back_hand),
@@ -32,7 +34,7 @@ class _AccountRegistState extends State<AccountRegist> {
 
       body: Container(
         // 余白を付ける
-        padding: EdgeInsets.all(64),
+        padding: const EdgeInsets.all(64),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -64,7 +66,7 @@ class _AccountRegistState extends State<AccountRegist> {
             ),
             
             const SizedBox(height: 8),
-            Container(
+            SizedBox(
               // 横幅いっぱいに広げる
               width: double.infinity,
               // リスト追加ボタン
@@ -75,11 +77,11 @@ class _AccountRegistState extends State<AccountRegist> {
                   // "pop"の引数から前の画面にデータを渡す
                   Navigator.of(context).pop(account);
                 },
-                child: Text('パスワード登録', style: TextStyle(color: Colors.white)),
+                child: const Text('パスワード登録', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 8),
-            Container(
+            SizedBox(
               // 横幅いっぱいに広げる
               width: double.infinity,
               // キャンセルボタン
@@ -89,7 +91,7 @@ class _AccountRegistState extends State<AccountRegist> {
                   // "pop"で前の画面に戻る
                   Navigator.of(context).pop();
                 },
-                child: Text('キャンセル'),
+                child: const Text('キャンセル'),
               ),
             ),
           ]

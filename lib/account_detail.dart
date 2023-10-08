@@ -3,27 +3,25 @@ import 'package:flutter/material.dart';
 import 'account_mst.dart';
 
 class AccountDetail extends StatefulWidget {
-  AccountMst accountMst = new AccountMst();
+  final AccountMst accountMst;
 
-  AccountDetail(AccountMst accountMst) {
-    this.accountMst = accountMst;
-  }
+  const AccountDetail(this.accountMst, {super.key});
+
   @override
-  _AccountDetailState createState() => _AccountDetailState(accountMst);
+  State<AccountDetail> createState() => _AccountDetailState(accountMst);
 }
 
 class _AccountDetailState extends State<AccountDetail> {
-  AccountMst accountMst = new AccountMst();
-  _AccountDetailState(AccountMst accountMst) {
-    this.accountMst = accountMst;
-  }
+  AccountMst accountMst = AccountMst();
+  _AccountDetailState(this.accountMst);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('詳細画面')),
+      appBar: AppBar(title: const Text('詳細画面')),
       body: Container(
         // 余白を付ける
-        padding: EdgeInsets.all(64),
+        padding: const EdgeInsets.all(64),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -49,7 +47,7 @@ class _AccountDetailState extends State<AccountDetail> {
             ),
 
             const SizedBox(height: 8),
-            Container(
+            SizedBox(
               // 横幅いっぱいに広げる
               width: double.infinity,
               // リスト追加ボタン
@@ -59,11 +57,11 @@ class _AccountDetailState extends State<AccountDetail> {
                   // "pop"の引数から前の画面にデータを渡す
                   Navigator.of(context).pop(accountMst);
                 },
-                child: Text('修正する', style: TextStyle(color: Colors.white)),
+                child: const Text('修正する', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 8),
-            Container(
+            SizedBox(
               // 横幅いっぱいに広げる
               width: double.infinity,
               // キャンセルボタン
@@ -73,7 +71,7 @@ class _AccountDetailState extends State<AccountDetail> {
                   // "pop"で前の画面に戻る
                   Navigator.of(context).pop();
                 },
-                child: Text('キャンセル'),
+                child: const Text('キャンセル'),
               ),
             ),
           ],
