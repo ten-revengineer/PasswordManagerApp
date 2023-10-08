@@ -10,7 +10,7 @@ class AccountList extends StatefulWidget {
   const AccountList({super.key});
 
   @override
-  _AccountListState createState() => _AccountListState();
+  State<AccountList> createState() => _AccountListState();
 }
 
 // リスト一覧画面用Widget

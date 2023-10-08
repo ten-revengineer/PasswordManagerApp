@@ -8,7 +8,7 @@ class AccountDetail extends StatefulWidget {
   const AccountDetail(this.accountMst, {super.key});
 
   @override
-  _AccountDetailState createState() => _AccountDetailState(accountMst);
+  State<AccountDetail> createState() => _AccountDetailState(accountMst);
 }
 
 class _AccountDetailState extends State<AccountDetail> {

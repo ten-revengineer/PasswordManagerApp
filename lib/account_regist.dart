@@ -7,7 +7,7 @@ class AccountRegist extends StatefulWidget {
   const AccountRegist({super.key});
 
   @override
-  _AccountRegistState createState() => _AccountRegistState();
+  State<AccountRegist> createState() => _AccountRegistState();
 }
 
 class _AccountRegistState extends State<AccountRegist> {
