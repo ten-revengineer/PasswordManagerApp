@@ -4,6 +4,8 @@ import 'package:passwordmanagerapp/account_mst.dart';
 
 // リスト一覧画面用Widget
 class AccountRegist extends StatefulWidget {
+  const AccountRegist({super.key});
+
   @override
   _AccountRegistState createState() => _AccountRegistState();
 }

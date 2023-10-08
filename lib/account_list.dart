@@ -7,6 +7,8 @@ import 'account_detail.dart';
 
 // リスト一覧画面用Widget
 class AccountList extends StatefulWidget {
+  const AccountList({super.key});
+
   @override
   _AccountListState createState() => _AccountListState();
 }

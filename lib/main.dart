@@ -7,6 +7,8 @@ void main() {
 }
 
 class PasswordManagerApp extends StatelessWidget {
+  const PasswordManagerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
