@@ -3,20 +3,17 @@ import 'package:flutter/material.dart';
 import 'account_mst.dart';
 
 class AccountDetail extends StatefulWidget {
-  AccountMst accountMst = new AccountMst();
+  final AccountMst accountMst;
 
-  AccountDetail(AccountMst accountMst) {
-    this.accountMst = accountMst;
-  }
+  const AccountDetail(this.accountMst, {super.key});
+
   @override
   _AccountDetailState createState() => _AccountDetailState(accountMst);
 }
 
 class _AccountDetailState extends State<AccountDetail> {
-  AccountMst accountMst = new AccountMst();
-  _AccountDetailState(AccountMst accountMst) {
-    this.accountMst = accountMst;
-  }
+  AccountMst accountMst = AccountMst();
+  _AccountDetailState(this.accountMst);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
