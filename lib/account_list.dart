@@ -20,13 +20,44 @@ class _AccountListState extends State<AccountList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('パスワード一覧'),
-        leading: TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: const Color(0xFFFFFFFF),
-          ),
-          child: const Text('並替'),
-          onPressed: () {},
+        leadingWidth: 400,
+        leading: Row(
+          children: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: const Color(0xFFFFFFFF),
+                padding: EdgeInsets.zero,
+              ),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 5, right: 0),
+                child: Text('並替'),
+              ),
+              onPressed: () {},
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: const Color(0xFFFFFFFF),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 0, right: 10),
+                child: Text('複数選択'),
+              ),
+              onPressed: () {},
+            ),
+            OutlinedButton(
+              style: TextButton.styleFrom(
+                foregroundColor: const Color(0xFFFFFFFF),
+                side: BorderSide(color: Colors.white, width: 1.0),
+              ),
+              child: const Text(
+                '　▼ すべて　',
+                style: TextStyle(
+                  fontSize: 10.0,
+                ),
+              ),
+              onPressed: () {},
+            )
+          ],
         ),
         actions: <Widget>[
           IconButton(
@@ -60,8 +91,7 @@ class _AccountListState extends State<AccountList> {
               child: Column(children: [
                 ListTile(
                     title: Text(account.title),
-                    subtitle:
-                        Text(account.accountId + "  /  " + account.password),
+                    subtitle: Text(account.accountId),
                     onTap: () async {
                       AccountMst accountMst = await Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) {
@@ -77,13 +107,24 @@ class _AccountListState extends State<AccountList> {
                     }),
                 Row(
                   children: <Widget>[
+                    const SizedBox(
+                      width: 20,
+                    ),
                     ElevatedButton(
                       onPressed: () async {
                         final data =
                             ClipboardData(text: accountList[index].accountId);
                         await Clipboard.setData(data);
                       },
-                      child: Text("アカウントをコピー"),
+                      child: const Text(
+                        'アカウントをコピー',
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
                     ),
                     ElevatedButton(
                       onPressed: () async {
@@ -91,9 +132,21 @@ class _AccountListState extends State<AccountList> {
                             ClipboardData(text: accountList[index].password);
                         await Clipboard.setData(data);
                       },
-                      child: Text("パスワードをコピー"),
+                      child: const Text(
+                        'パスワードをコピー',
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
                     ),
                   ],
+                ),
+                const Divider(
+                  height: 30,
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 0,
+                  color: Color.fromARGB(29, 92, 92, 92),
                 ),
               ]));
         },
