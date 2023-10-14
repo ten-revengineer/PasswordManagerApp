@@ -159,7 +159,7 @@ class _AccountListState extends State<AccountList> {
           final newAccount = await Navigator.of(context).push(
             MaterialPageRoute(builder: (context) {
               // 遷移先の画面としてリスト追加画面を指定
-              return AccountRegist();
+              return const AccountRegist();
             }),
           );
           if (newAccount != null) {
