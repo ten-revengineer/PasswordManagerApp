@@ -3,10 +3,12 @@ import 'package:passwordmanagerapp/account_list.dart';
 
 void main() {
   // 最初に表示するWidget
-  runApp(PasswordManagerApp());
+  runApp(const PasswordManagerApp());
 }
 
 class PasswordManagerApp extends StatelessWidget {
+  const PasswordManagerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +22,7 @@ class PasswordManagerApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // リスト一覧画面を表示
-      home: AccountList(),
+      home: const AccountList(),
     );
   }
 }

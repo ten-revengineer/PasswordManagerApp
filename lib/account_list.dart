@@ -7,8 +7,10 @@ import 'account_detail.dart';
 
 // リスト一覧画面用Widget
 class AccountList extends StatefulWidget {
+  const AccountList({super.key});
+
   @override
-  _AccountListState createState() => _AccountListState();
+  State<AccountList> createState() => _AccountListState();
 }
 
 // リスト一覧画面用Widget
@@ -47,7 +49,7 @@ class _AccountListState extends State<AccountList> {
             OutlinedButton(
               style: TextButton.styleFrom(
                 foregroundColor: const Color(0xFFFFFFFF),
-                side: BorderSide(color: Colors.white, width: 1.0),
+                side: const BorderSide(color: Colors.white, width: 1.0),
               ),
               child: const Text(
                 '　▼ すべて　',
@@ -98,8 +100,11 @@ class _AccountListState extends State<AccountList> {
                           // 遷移先の画面としてリスト追加画面を指定
                           return AccountDetail(account);
                         }),
-                      );
-                      if (accountMst != null) {
+                      ) ?? AccountMst.empty();
+                       String accountId = accountMst.accountId;
+                       String password = accountMst.password;
+                       String title = accountMst.title;
+                      if (!(accountId == '' && password == '' && title == '')) {
                         setState(() {
                           accountList[index] = accountMst;
                         });
@@ -157,7 +162,7 @@ class _AccountListState extends State<AccountList> {
           final newAccount = await Navigator.of(context).push(
             MaterialPageRoute(builder: (context) {
               // 遷移先の画面としてリスト追加画面を指定
-              return AccountRegist();
+              return const AccountRegist();
             }),
           );
           if (newAccount != null) {
