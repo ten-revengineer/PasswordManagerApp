@@ -8,12 +8,10 @@ class AccountDetail extends StatefulWidget {
   const AccountDetail(this.accountMst, {super.key});
 
   @override
-  State<AccountDetail> createState() => _AccountDetailState(accountMst);
+  State<AccountDetail> createState() => _AccountDetailState();
 }
 
 class _AccountDetailState extends State<AccountDetail> {
-  AccountMst accountMst = AccountMst();
-  _AccountDetailState(this.accountMst);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +25,23 @@ class _AccountDetailState extends State<AccountDetail> {
             const SizedBox(height: 8),
             // タイトル、ID,パスワードの入力
             TextField(
-              controller: TextEditingController(text: accountMst.title),
+              controller: TextEditingController(text: widget.accountMst.title),
               onChanged: (String value) {
-                accountMst.title = value;
+                widget.accountMst.title = value;
               },
             ),
             TextField(
-              controller: TextEditingController(text: accountMst.accountId),
+              controller:
+                  TextEditingController(text: widget.accountMst.accountId),
               onChanged: (String value) {
-                accountMst.accountId = value;
+                widget.accountMst.accountId = value;
               },
             ),
             TextField(
-              controller: TextEditingController(text: accountMst.password),
+              controller:
+                  TextEditingController(text: widget.accountMst.password),
               onChanged: (String value) {
-                accountMst.password = value;
+                widget.accountMst.password = value;
               },
             ),
 
@@ -54,7 +54,7 @@ class _AccountDetailState extends State<AccountDetail> {
                 onPressed: () {
                   // "pop"で前の画面に戻る
                   // "pop"の引数から前の画面にデータを渡す
-                  Navigator.of(context).pop(accountMst);
+                  Navigator.of(context).pop(widget.accountMst);
                 },
                 child:
                     const Text('修正する', style: TextStyle(color: Colors.white)),
