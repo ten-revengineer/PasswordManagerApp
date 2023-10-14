@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:passwordmanagerapp/account_mst.dart';
 
+import 'main.dart';
+
 // リスト一覧画面用Widget
 class AccountRegist extends StatefulWidget {
   const AccountRegist({super.key});
@@ -26,68 +28,87 @@ class _AccountRegistState extends State<AccountRegist> {
           ),
         ),
         margin: const EdgeInsets.only(top: 10),
-        child: Container(
-            // 余白を付ける
-            padding: const EdgeInsets.all(64),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 8),
-                  // タイトル、ID,パスワードの入力
-                  TextField(
-                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                    onChanged: (String value) {
-                      // データを変更
+        child: Column(children: <Widget>[
+          Row(children: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(account);
+              },
+              child: const Text('✕', style: TextStyle(color: customSwatch,fontSize: 20)),
+            ),
+            const Expanded(child: SizedBox()),
+            const Text('パスワードの登録', style: TextStyle(color: customSwatch,fontWeight: FontWeight.bold)),
+            const Expanded(child: SizedBox()),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(account);
+              },
+              child: const Text('登録', style: TextStyle(color: customSwatch)),
+            ),
+          ]),
+          Container(
+              // 余白を付ける
+              padding: const EdgeInsets.all(64),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const SizedBox(height: 8),
+                    // タイトル、ID,パスワードの入力
+                    TextField(
+                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                      onChanged: (String value) {
+                        // データを変更
 
-                      account.title = value;
-                    },
-                  ),
-                  TextField(
-                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                    onChanged: (String value) {
-                      // データを変更
-
-                      account.accountId = value;
-                    },
-                  ),
-                  TextField(
-                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                    onChanged: (String value) {
-                      // データを変更
-
-                      account.password = value;
-                    },
-                  ),
-
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    // 横幅いっぱいに広げる
-                    width: double.infinity,
-                    // リスト追加ボタン
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // "pop"で前の画面に戻る
-                        // "pop"の引数から前の画面にデータを渡す
-                        Navigator.of(context).pop(account);
+                        account.title = value;
                       },
-                      child: const Text('パスワード登録',
-                          style: TextStyle(color: Colors.white)),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    // 横幅いっぱいに広げる
-                    width: double.infinity,
-                    // キャンセルボタン
-                    child: TextButton(
-                      // ボタンをクリックした時の処理
-                      onPressed: () {
-                        // "pop"で前の画面に戻る
-                        Navigator.of(context).pop();
+                    TextField(
+                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                      onChanged: (String value) {
+                        // データを変更
+
+                        account.accountId = value;
                       },
-                      child: const Text('キャンセル'),
                     ),
-                  ),
-                ])));
+                    TextField(
+                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                      onChanged: (String value) {
+                        // データを変更
+
+                        account.password = value;
+                      },
+                    ),
+
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      // 横幅いっぱいに広げる
+                      width: double.infinity,
+                      // リスト追加ボタン
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // "pop"で前の画面に戻る
+                          // "pop"の引数から前の画面にデータを渡す
+                          Navigator.of(context).pop(account);
+                        },
+                        child: const Text('パスワード登録',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      // 横幅いっぱいに広げる
+                      width: double.infinity,
+                      // キャンセルボタン
+                      child: TextButton(
+                        // ボタンをクリックした時の処理
+                        onPressed: () {
+                          // "pop"で前の画面に戻る
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('キャンセル'),
+                      ),
+                    ),
+                  ]))
+        ]));
   }
 }
