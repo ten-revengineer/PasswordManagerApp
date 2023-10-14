@@ -100,8 +100,11 @@ class _AccountListState extends State<AccountList> {
                           // 遷移先の画面としてリスト追加画面を指定
                           return AccountDetail(account);
                         }),
-                      );
-                      if (accountMst != null) {
+                      ) ?? AccountMst.empty();
+                       String accountId = accountMst.accountId;
+                       String password = accountMst.password;
+                       String title = accountMst.title;
+                      if (!(accountId == '' && password == '' && title == '')) {
                         setState(() {
                           accountList[index] = accountMst;
                         });

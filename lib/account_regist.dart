@@ -12,7 +12,7 @@ class AccountRegist extends StatefulWidget {
 
 class _AccountRegistState extends State<AccountRegist> {
   // アカウントデータ
-  AccountMst account = AccountMst();
+  AccountMst account = AccountMst.empty();
 
   @override
   Widget build(BuildContext context) {
