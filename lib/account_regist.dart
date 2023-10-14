@@ -17,16 +17,16 @@ class _AccountRegistState extends State<AccountRegist> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
         ),
-      ),
-      margin: const EdgeInsets.only(top: 10),
-      child:  Container(
+        margin: const EdgeInsets.only(top: 10),
+        child: Container(
             // 余白を付ける
             padding: const EdgeInsets.all(64),
             child: Column(
