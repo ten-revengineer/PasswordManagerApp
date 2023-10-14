@@ -16,21 +16,17 @@ class _AccountRegistState extends State<AccountRegist> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("テスト"),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.back_hand),
-              tooltip: '戻る',
-              onPressed: () {
-                // "pop"で前の画面に戻る
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
+    return Container(
+      height: double.infinity,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
         ),
-        body: Container(
+      ),
+      margin: const EdgeInsets.only(top: 10),
+      child:  Container(
             // 余白を付ける
             padding: const EdgeInsets.all(64),
             child: Column(
