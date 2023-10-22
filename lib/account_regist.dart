@@ -19,7 +19,7 @@ class _AccountRegistState extends State<AccountRegist> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: double.infinity,
         decoration: const BoxDecoration(
           color: Color(0xFFCAE2ED),
