@@ -32,7 +32,7 @@ class _AccountRegistState extends State<AccountRegist> {
           Row(children: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(account);
+                Navigator.of(context).pop();
               },
               child: const Text('✕',
                   style: TextStyle(color: customSwatch, fontSize: 20)),
