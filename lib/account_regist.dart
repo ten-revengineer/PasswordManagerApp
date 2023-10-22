@@ -19,15 +19,16 @@ class _AccountRegistState extends State<AccountRegist> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
         height: double.infinity,
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Color(0xFFCAE2ED),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
         ),
-        margin: const EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 15),
         child: Column(children: <Widget>[
           Row(children: <Widget>[
             TextButton(
@@ -47,6 +48,8 @@ class _AccountRegistState extends State<AccountRegist> {
             ),
           ]),
           Container(
+              margin: const EdgeInsets.only(top: 20),
+              color: customSwatch[50],
               // 余白を付ける
               padding: const EdgeInsets.all(64),
               child: Column(
