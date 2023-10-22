@@ -50,13 +50,14 @@ class _AccountRegistState extends State<AccountRegist> {
             ),
           ]),
           Container(
-              margin: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 40),
+              margin: const EdgeInsets.only(
+                  top: 20, left: 20, right: 20, bottom: 40),
               height: 500,
               color: customSwatch[50],
               child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
                     const SizedBox(height: 8),
                     // タイトル、ID,パスワードの入力
                     TextField(
@@ -85,28 +86,23 @@ class _AccountRegistState extends State<AccountRegist> {
                     ),
 
                     const SizedBox(height: 8),
-                  ]
-                )
-            )),
+                  ]))),
           Align(
-            alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              // 横幅いっぱいに広げる
-              width: double.infinity,
-              // リスト追加ボタン
-              child: ElevatedButton(
-                onPressed: () {
-                  // "pop"で前の画面に戻る
-                  // "pop"の引数から前の画面にデータを渡す
-                  Navigator.of(context).pop(account);
-                },
-                child: const Text('パスワード登録',
-                    style: TextStyle(color: Colors.white)),
-              ),
-            )
-          ),
-        ]
-      )
-    );
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                // 横幅いっぱいに広げる
+                width: double.infinity,
+                // リスト追加ボタン
+                child: ElevatedButton(
+                  onPressed: () {
+                    // "pop"で前の画面に戻る
+                    // "pop"の引数から前の画面にデータを渡す
+                    Navigator.of(context).pop(account);
+                  },
+                  child: const Text('パスワード登録',
+                      style: TextStyle(color: Colors.white)),
+                ),
+              )),
+        ]));
   }
 }
