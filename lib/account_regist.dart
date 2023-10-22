@@ -19,7 +19,6 @@ class _AccountRegistState extends State<AccountRegist> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: double.infinity,
         decoration: const BoxDecoration(
           color: Color(0xFFCAE2ED),
@@ -51,10 +50,10 @@ class _AccountRegistState extends State<AccountRegist> {
             ),
           ]),
           Container(
-              margin: const EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 40),
+              height: 500,
               color: customSwatch[50],
-              // 余白を付ける
-              padding: const EdgeInsets.all(64),
+              child: SingleChildScrollView(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -86,35 +85,28 @@ class _AccountRegistState extends State<AccountRegist> {
                     ),
 
                     const SizedBox(height: 8),
-                    SizedBox(
-                      // 横幅いっぱいに広げる
-                      width: double.infinity,
-                      // リスト追加ボタン
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // "pop"で前の画面に戻る
-                          // "pop"の引数から前の画面にデータを渡す
-                          Navigator.of(context).pop(account);
-                        },
-                        child: const Text('パスワード登録',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    SizedBox(
-                      // 横幅いっぱいに広げる
-                      width: double.infinity,
-                      // キャンセルボタン
-                      child: TextButton(
-                        // ボタンをクリックした時の処理
-                        onPressed: () {
-                          // "pop"で前の画面に戻る
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('キャンセル'),
-                      ),
-                    ),
-                  ]))
-        ]));
+                  ]
+                )
+            )),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              // 横幅いっぱいに広げる
+              width: double.infinity,
+              // リスト追加ボタン
+              child: ElevatedButton(
+                onPressed: () {
+                  // "pop"で前の画面に戻る
+                  // "pop"の引数から前の画面にデータを渡す
+                  Navigator.of(context).pop(account);
+                },
+                child: const Text('パスワード登録',
+                    style: TextStyle(color: Colors.white)),
+              ),
+            )
+          ),
+        ]
+      )
+    );
   }
 }
