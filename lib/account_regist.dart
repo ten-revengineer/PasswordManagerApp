@@ -35,10 +35,13 @@ class _AccountRegistState extends State<AccountRegist> {
               onPressed: () {
                 Navigator.of(context).pop(account);
               },
-              child: const Text('✕', style: TextStyle(color: customSwatch,fontSize: 20)),
+              child: const Text('✕',
+                  style: TextStyle(color: customSwatch, fontSize: 20)),
             ),
             const Expanded(child: SizedBox()),
-            const Text('パスワードの登録', style: TextStyle(color: customSwatch,fontWeight: FontWeight.bold)),
+            const Text('パスワードの登録',
+                style: TextStyle(
+                    color: customSwatch, fontWeight: FontWeight.bold)),
             const Expanded(child: SizedBox()),
             TextButton(
               onPressed: () {
