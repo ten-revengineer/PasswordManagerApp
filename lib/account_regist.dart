@@ -64,7 +64,8 @@ class _AccountRegistState extends State<AccountRegist> {
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
-                          child: Text('パスワードのタイトル'),
+                          child: Text('パスワードのタイトル',
+                              style: TextStyle(color: Colors.grey)),
                         )),
                     // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                     onChanged: (String value) {
@@ -83,7 +84,8 @@ class _AccountRegistState extends State<AccountRegist> {
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
-                          child: Text('アカウント・ID'),
+                          child: Text('アカウント・ID',
+                              style: TextStyle(color: Colors.grey)),
                         )),
                     // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                     onChanged: (String value) {
@@ -102,7 +104,8 @@ class _AccountRegistState extends State<AccountRegist> {
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
-                          child: Text('パスワード'),
+                          child: Text('パスワード',
+                              style: TextStyle(color: Colors.grey)),
                         )),
                     // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                     onChanged: (String value) {
