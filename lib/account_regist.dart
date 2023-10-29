@@ -30,92 +30,89 @@ class _AccountRegistState extends State<AccountRegist> {
         margin: const EdgeInsets.only(top: 15),
         child: Column(children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('✕',
-                  style: TextStyle(color: customSwatch, fontSize: 20)),
-            ),
-            const Text('パスワードの登録',
-                style: TextStyle(
-                    color: customSwatch, fontWeight: FontWeight.bold)),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(account);
-              },
-              child: const Text('登録', style: TextStyle(color: customSwatch)),
-            ),
-          ]),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('✕',
+                      style: TextStyle(color: customSwatch, fontSize: 20)),
+                ),
+                const Text('パスワードの登録',
+                    style: TextStyle(
+                        color: customSwatch, fontWeight: FontWeight.bold)),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(account);
+                  },
+                  child:
+                      const Text('登録', style: TextStyle(color: customSwatch)),
+                ),
+              ]),
           Container(
               margin: const EdgeInsets.only(
                   top: 20, left: 20, right: 20, bottom: 40),
               height: 500,
               child: SingleChildScrollView(
-                  child: Column(
-                      children: <Widget>[
-                  Container(
-                    color: customSwatch[50],
-                    child:
-                    // タイトル、ID,パスワードの入力
-                    TextField(
-                      decoration: const InputDecoration(
+                  child: Column(children: <Widget>[
+                Container(
+                  color: customSwatch[50],
+                  child:
+                      // タイトル、ID,パスワードの入力
+                      TextField(
+                    decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
                           child: Text('パスワードのタイトル'),
-                        )
-                      ),
-                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                      onChanged: (String value) {
-                        // データを変更
+                        )),
+                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                    onChanged: (String value) {
+                      // データを変更
 
-                        account.title = value;
-                      },
-                    ),
-                        ),
-                    const SizedBox(height: 1),
-                    Container(
-                      color: customSwatch[50],
-                      child:
+                      account.title = value;
+                    },
+                  ),
+                ),
+                const SizedBox(height: 1),
+                Container(
+                  color: customSwatch[50],
+                  child:
                       // タイトル、ID,パスワードの入力
                       TextField(
-                      decoration: const InputDecoration(
+                    decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
                           child: Text('アカウント・ID'),
-                        )
-                      ),
-                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                      onChanged: (String value) {
-                        // データを変更
+                        )),
+                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                    onChanged: (String value) {
+                      // データを変更
 
-                        account.accountId = value;
-                      },
-                    ),
-                    ),
-                    const SizedBox(height: 1),
-                    Container(
-                      color: customSwatch[50],
-                      child:
+                      account.accountId = value;
+                    },
+                  ),
+                ),
+                const SizedBox(height: 1),
+                Container(
+                  color: customSwatch[50],
+                  child:
                       // タイトル、ID,パスワードの入力
                       TextField(
-                      decoration: const InputDecoration(
+                    decoration: const InputDecoration(
                         border: InputBorder.none,
                         label: Center(
                           child: Text('パスワード'),
-                        )
-                      ),
-                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                      onChanged: (String value) {
-                        // データを変更
+                        )),
+                    // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                    onChanged: (String value) {
+                      // データを変更
 
-                        account.password = value;
-                      },
-                    ),
-                    ),
-                  ]))),
+                      account.password = value;
+                    },
+                  ),
+                ),
+              ]))),
           Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
