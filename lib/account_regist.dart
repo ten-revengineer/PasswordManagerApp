@@ -53,15 +53,16 @@ class _AccountRegistState extends State<AccountRegist> {
               margin: const EdgeInsets.only(
                   top: 20, left: 20, right: 20, bottom: 40),
               height: 500,
-              color: customSwatch[50],
               child: SingleChildScrollView(
                   child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                    const SizedBox(height: 8),
+                  Container(
+                    color: customSwatch[50],
+                    child:
                     // タイトル、ID,パスワードの入力
                     TextField(
                       decoration: const InputDecoration(
+                        border: InputBorder.none,
                         label: Center(
                           child: Text('パスワードのタイトル'),
                         )
@@ -73,8 +74,15 @@ class _AccountRegistState extends State<AccountRegist> {
                         account.title = value;
                       },
                     ),
-                    TextField(
+                        ),
+                    const SizedBox(height: 1),
+                    Container(
+                      color: customSwatch[50],
+                      child:
+                      // タイトル、ID,パスワードの入力
+                      TextField(
                       decoration: const InputDecoration(
+                        border: InputBorder.none,
                         label: Center(
                           child: Text('アカウント・ID'),
                         )
@@ -86,8 +94,15 @@ class _AccountRegistState extends State<AccountRegist> {
                         account.accountId = value;
                       },
                     ),
-                    TextField(
+                    ),
+                    const SizedBox(height: 1),
+                    Container(
+                      color: customSwatch[50],
+                      child:
+                      // タイトル、ID,パスワードの入力
+                      TextField(
                       decoration: const InputDecoration(
+                        border: InputBorder.none,
                         label: Center(
                           child: Text('パスワード'),
                         )
@@ -99,8 +114,7 @@ class _AccountRegistState extends State<AccountRegist> {
                         account.password = value;
                       },
                     ),
-
-                    const SizedBox(height: 8),
+                    ),
                   ]))),
           Align(
               alignment: Alignment.bottomCenter,
