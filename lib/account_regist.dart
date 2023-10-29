@@ -29,7 +29,9 @@ class _AccountRegistState extends State<AccountRegist> {
         ),
         margin: const EdgeInsets.only(top: 15),
         child: Column(children: <Widget>[
-          Row(children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -37,11 +39,9 @@ class _AccountRegistState extends State<AccountRegist> {
               child: const Text('✕',
                   style: TextStyle(color: customSwatch, fontSize: 20)),
             ),
-            const Expanded(child: SizedBox()),
             const Text('パスワードの登録',
                 style: TextStyle(
                     color: customSwatch, fontWeight: FontWeight.bold)),
-            const Expanded(child: SizedBox()),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(account);
