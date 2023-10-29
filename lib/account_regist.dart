@@ -61,6 +61,11 @@ class _AccountRegistState extends State<AccountRegist> {
                     const SizedBox(height: 8),
                     // タイトル、ID,パスワードの入力
                     TextField(
+                      decoration: const InputDecoration(
+                        label: Center(
+                          child: Text('パスワードのタイトル'),
+                        )
+                      ),
                       // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                       onChanged: (String value) {
                         // データを変更
@@ -69,6 +74,11 @@ class _AccountRegistState extends State<AccountRegist> {
                       },
                     ),
                     TextField(
+                      decoration: const InputDecoration(
+                        label: Center(
+                          child: Text('アカウント・ID'),
+                        )
+                      ),
                       // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                       onChanged: (String value) {
                         // データを変更
@@ -77,6 +87,11 @@ class _AccountRegistState extends State<AccountRegist> {
                       },
                     ),
                     TextField(
+                      decoration: const InputDecoration(
+                        label: Center(
+                          child: Text('パスワード'),
+                        )
+                      ),
                       // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                       onChanged: (String value) {
                         // データを変更
