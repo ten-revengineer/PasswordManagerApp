@@ -120,38 +120,81 @@ class _AccountRegistState extends State<AccountRegist> {
                     ),
                   ),
                   const SizedBox(height: 1),
-                  Container(
-                    color: customSwatch[50],
-                    child: TextFormField(
-                      obscureText: _isObscure,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        label: const Center(
-                          child: Text(
-                            'パスワード',
-                            style: TextStyle(color: Colors.grey),
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Container(
+                          color: customSwatch[50],
+                          child: TextFormField(
+                            obscureText: _isObscure,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              label: const Center(
+                                child: Text(
+                                  'パスワード',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                              suffixIcon: IconButton(
+                                icon: Icon(_isObscure
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      _isObscure = !_isObscure;
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+
+                            // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                            onChanged: (String value) {
+                              // データを変更
+                              account.password = value;
+                            },
                           ),
                         ),
-                        suffixIcon: IconButton(
-                          icon: Icon(_isObscure
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onPressed: () {
-                            setState(
-                              () {
-                                _isObscure = !_isObscure;
-                              },
-                            );
-                          },
+                      ),
+                      const SizedBox(width: 1),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration:const BoxDecoration(
+                          color: Colors.grey,
+                        ),
+                        child: TextButton(
+                          
+                          onPressed: () {},
+                          child: const Text(
+                            '設定',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              ),
+                          ),
                         ),
                       ),
-
-                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                      onChanged: (String value) {
-                        // データを変更
-                        account.password = value;
-                      },
-                    ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration:const BoxDecoration(
+                          color: Color.fromARGB(189, 3, 77, 129),
+                        ),
+                        child: TextButton(
+                          
+                          onPressed: () {},
+                          child: const Text(
+                            '自動作成',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8.5,
+                              ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
