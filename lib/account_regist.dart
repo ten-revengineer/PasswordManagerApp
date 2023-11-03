@@ -196,6 +196,16 @@ class _AccountRegistState extends State<AccountRegist> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 1),
+                  Container(
+                    color: customSwatch[50],
+                    height: 50,
+                    width: double.infinity,
+                    child: TextButton(
+                      child: const Text('すべて'),
+                      onPressed: () {},
+                    ),
+                  ),
                 ],
               ),
             ),
