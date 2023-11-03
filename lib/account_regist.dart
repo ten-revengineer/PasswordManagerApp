@@ -165,7 +165,6 @@ class _AccountRegistState extends State<AccountRegist> {
                           color: Colors.grey,
                         ),
                         child: TextButton(
-                          
                           onPressed: () {},
                           child: const Text(
                             '設定',
@@ -183,7 +182,6 @@ class _AccountRegistState extends State<AccountRegist> {
                           color: Color.fromARGB(189, 3, 77, 129),
                         ),
                         child: TextButton(
-                          
                           onPressed: () {},
                           child: const Text(
                             '自動作成',
