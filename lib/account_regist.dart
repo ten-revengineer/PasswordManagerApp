@@ -15,6 +15,7 @@ class AccountRegist extends StatefulWidget {
 class _AccountRegistState extends State<AccountRegist> {
   // アカウントデータ
   AccountMst account = AccountMst.empty();
+  bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -120,16 +121,30 @@ class _AccountRegistState extends State<AccountRegist> {
                   const SizedBox(height: 1),
                   Container(
                     color: customSwatch[50],
-                    child: TextField(
-                      decoration: const InputDecoration(
+                    child: TextFormField(
+                      obscureText: _isObscure,
+                      decoration: InputDecoration(
                         border: InputBorder.none,
-                        label: Center(
+                        label: const Center(
                           child: Text(
                             'パスワード',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
+                        suffixIcon: IconButton(
+                          icon: Icon(_isObscure
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            setState(
+                              () {
+                                _isObscure = !_isObscure;
+                              },
+                            );
+                          },
+                        ),
                       ),
+
                       // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
                       onChanged: (String value) {
                         // データを変更
