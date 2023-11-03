@@ -94,7 +94,8 @@ class _AccountRegistState extends State<AccountRegist> {
                         width: 50,
                         height: 50,
                         child: Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVpMw6hVH4re8VfuG2KpZPDd2snPAxzSpUOlFSNqYEw&s'),
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVpMw6hVH4re8VfuG2KpZPDd2snPAxzSpUOlFSNqYEw&s',
+                        ),
                       ),
                     ],
                   ),
