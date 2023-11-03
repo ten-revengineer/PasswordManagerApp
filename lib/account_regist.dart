@@ -65,24 +65,37 @@ class _AccountRegistState extends State<AccountRegist> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Container(
-                    color: customSwatch[50],
-                    child: TextField(
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        label: Center(
-                          child: Text(
-                            'パスワードのタイトル',
-                            style: TextStyle(color: Colors.grey),
+                  Row(
+                    children: <Widget>[
+                      Flexible(
+                        child: Container(
+                          color: customSwatch[50],
+                          child: TextField(
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              label: Center(
+                                child: Text(
+                                  'パスワードのタイトル',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                            ),
+                            // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
+                            onChanged: (String value) {
+                              // データを変更
+                              account.title = value;
+                            },
                           ),
                         ),
                       ),
-                      // 入力されたテキストの値を受け取る（valueが入力されたテキスト）
-                      onChanged: (String value) {
-                        // データを変更
-                        account.title = value;
-                      },
-                    ),
+                      const SizedBox(width: 1),
+                      SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVpMw6hVH4re8VfuG2KpZPDd2snPAxzSpUOlFSNqYEw&s'),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 1),
                   Container(
