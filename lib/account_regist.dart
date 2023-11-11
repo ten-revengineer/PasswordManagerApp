@@ -204,6 +204,24 @@ class _AccountRegistState extends State<AccountRegist> {
                       onPressed: () {},
                     ),
                   ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Container(
+                    color: customSwatch[50],
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        label: Center(
+                          child: Text(
+                            'ログイン画面のURL',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                      onChanged: (String value) {},
+                    ),
+                  ),
                 ],
               ),
             ),
