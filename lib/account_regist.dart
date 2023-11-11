@@ -161,7 +161,7 @@ class _AccountRegistState extends State<AccountRegist> {
                       Container(
                         width: 50,
                         height: 50,
-                        decoration:const BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.grey,
                         ),
                         child: TextButton(
@@ -171,14 +171,14 @@ class _AccountRegistState extends State<AccountRegist> {
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 10,
-                              ),
+                            ),
                           ),
                         ),
                       ),
                       Container(
                         width: 50,
                         height: 50,
-                        decoration:const BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color.fromARGB(189, 3, 77, 129),
                         ),
                         child: TextButton(
@@ -188,7 +188,7 @@ class _AccountRegistState extends State<AccountRegist> {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 8.5,
-                              ),
+                            ),
                           ),
                         ),
                       ),
