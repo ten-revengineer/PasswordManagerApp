@@ -222,6 +222,51 @@ class _AccountRegistState extends State<AccountRegist> {
                       onChanged: (String value) {},
                     ),
                   ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        color: customSwatch[50],
+                        child: SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.camera_alt_outlined,
+                              size: 60,
+                              color: customSwatch,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 1),
+                      Flexible(
+                        child: Container(
+                          height: 100,
+                          color: customSwatch[50],
+                          child: TextField(
+                            keyboardType: TextInputType.multiline,
+                            maxLines: null,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              label: Center(
+                                child: Text(
+                                  'メモを入力',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onChanged: (String value) {},
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
