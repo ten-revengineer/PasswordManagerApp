@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:passwordmanagerapp/account_regist.dart';
 import 'package:passwordmanagerapp/account_mst.dart';
 import 'package:flutter/services.dart';
-
 import 'account_detail.dart';
 
 // リスト一覧画面用Widget
@@ -96,14 +95,15 @@ class _AccountListState extends State<AccountList> {
                     subtitle: Text(account.accountId),
                     onTap: () async {
                       AccountMst accountMst = await Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) {
-                          // 遷移先の画面としてリスト追加画面を指定
-                          return AccountDetail(account);
-                        }),
-                      ) ?? AccountMst.empty();
-                       String accountId = accountMst.accountId;
-                       String password = accountMst.password;
-                       String title = accountMst.title;
+                            MaterialPageRoute(builder: (context) {
+                              // 遷移先の画面としてリスト追加画面を指定
+                              return AccountDetail(account);
+                            }),
+                          ) ??
+                          AccountMst.empty();
+                      String accountId = accountMst.accountId;
+                      String password = accountMst.password;
+                      String title = accountMst.title;
                       if (!(accountId == '' && password == '' && title == '')) {
                         setState(() {
                           accountList[index] = accountMst;
@@ -158,13 +158,15 @@ class _AccountListState extends State<AccountList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // "push"で新規画面に遷移
-          final newAccount = await Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              // 遷移先の画面としてリスト追加画面を指定
-              return const AccountRegist();
-            }),
-          );
+          final newAccount = await showModalBottomSheet<AccountMst>(
+              context: context,
+              backgroundColor: Colors.transparent,
+              isScrollControlled: true,
+              enableDrag: true,
+              barrierColor: Colors.black.withOpacity(0.5),
+              builder: (context) {
+                return const AccountRegist();
+              });
           if (newAccount != null) {
             setState(() {
               accountList.add(newAccount);

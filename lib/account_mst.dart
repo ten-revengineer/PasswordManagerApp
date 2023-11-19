@@ -8,5 +8,4 @@ class AccountMst {
       : accountId = '',
         password = '',
         title = '';
-
 }
