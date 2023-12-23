@@ -1,43 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:passwordmanagerapp/account_list.dart';
+import 'database_helper.dart';
 
-void main() {
-  // 最初に表示するWidget
-  runApp(const PasswordManagerApp());
-}
+void main() => runApp(MyApp());
 
-class PasswordManagerApp extends StatelessWidget {
-  const PasswordManagerApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 右上に表示される"debug"ラベルを消す
-      debugShowCheckedModeBanner: false,
-      // アプリ名
-      title: 'Password Manager Application!',
-      theme: ThemeData(
-        // テーマカラー
-        primarySwatch: customSwatch,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      // リスト一覧画面を表示
-      home: const AccountList(),
+       home: MyHomePage(),
     );
   }
 }
 
-const MaterialColor customSwatch =
-    MaterialColor(_mcgpalette0PrimaryValue, <int, Color>{
-  50: Color(0xFFEAF3F8),
-  100: Color(0xFFCAE2ED),
-  200: Color(0xFFA7CEE1),
-  300: Color(0xFF83BAD5),
-  400: Color(0xFF69ACCC),
-  500: Color(_mcgpalette0PrimaryValue),
-  600: Color(0xFF4795BD),
-  700: Color(0xFF3D8BB5),
-  800: Color(0xFF3581AE),
-  900: Color(0xFF256FA1),
-});
-const int _mcgpalette0PrimaryValue = 0xFF4E9DC3;
+class MyHomePage extends StatelessWidget {
+
+  // DatabaseHelper クラスのインスタンス取得
+  final dbHelper = DatabaseHelper.instance;
+
+  // homepage layout
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SQLiteデモ'),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('登録', style: TextStyle(fontSize: 35),),
+              onPressed: _insert,
+            ),
+            ElevatedButton(
+              child: Text('照会', style: TextStyle(fontSize: 35),),
+              onPressed: _query,
+            ),
+            ElevatedButton(
+              child: Text('更新', style: TextStyle(fontSize: 35),),
+              onPressed: _update,
+            ),
+            ElevatedButton(
+              child: Text('削除', style: TextStyle(fontSize: 35),),
+              onPressed: _delete,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // 登録ボタンクリック
+  void _insert() async {
+    // row to insert
+    Map<String, dynamic> row = {
+      DatabaseHelper.columnName : '山田　太郎',
+      DatabaseHelper.columnAge  : 35
+    };
+    final id = await dbHelper.insert(row);
+    print('登録しました。id: $id');
+  }
+
+  // 照会ボタンクリック
+  void _query() async {
+    final allRows = await dbHelper.queryAllRows();
+    print('全てのデータを照会しました。');
+    allRows.forEach(print);
+  }
+
+  // 更新ボタンクリック
+  void _update() async {
+     Map<String, dynamic> row = {
+      DatabaseHelper.columnId   : 1,
+      DatabaseHelper.columnName : '鈴木　一郎',
+      DatabaseHelper.columnAge  : 48
+    };
+    final rowsAffected = await dbHelper.update(row);
+    print('更新しました。 ID：$rowsAffected ');
+  }
+
+  // 削除ボタンクリック
+  void _delete() async {
+    final id = await dbHelper.queryRowCount();
+    final rowsDeleted = await dbHelper.delete(id!);
+    print('削除しました。 $rowsDeleted ID: $id');
+  }
+}
